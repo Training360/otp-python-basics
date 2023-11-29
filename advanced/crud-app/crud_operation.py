@@ -6,8 +6,9 @@ def find_item(id: int, items: list) -> dict | None:
 
 def remove_item(id: int, items: list) -> None:
     item = find_item(id, items)
-    if item is not None:
+    if item:
         items.remove(item)
+        return True
 
 
 def update_item(id: int, updated_item: dict, items: list) -> dict | None:
@@ -26,4 +27,6 @@ def create_item(item: dict, items: list) -> dict:
     new_item = {'id': items[-1]['id'] + 1}
     new_item.update(item)
     items.append(new_item)
+    # item.update({'id': items[-1]['id'] + 1})
+    # items.append(item)
     return items[-1]
